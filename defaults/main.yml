@@ -1,0 +1,4 @@
+---
+# defaults file for coxley.codey
+codey_groups: codey,input,sudo
+codey_state: present

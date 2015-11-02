@@ -1,0 +1,27 @@
+---
+- package:
+    state: latest
+    name: "{{ item }}"
+  with_items:
+    - git
+    - htop
+    - tmux
+    - vim
+    - zsh
+    - '{{ silversearcher_pkg }}'
+    - '{{ python_pkg }}'
+    - '{{ pip_pkg }}'
+    - '{{ venv_pkg }}'
+
+- pip: name=glances executable=pip2
+- pip: name=ohmu executable=pip2
+
+- git:
+    repo: 'https://github.com/coxley/dotfiles.git'
+    dest: /home/codey/.dotfiles
+    force: yes
+
+- shell: zsh ./init.sh
+  args:
+    chdir: /home/codey/.dotfiles
+    creates: /home/codey/.zgen

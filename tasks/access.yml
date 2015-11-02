@@ -1,0 +1,21 @@
+---
+- group:
+    name: codey
+    state: '{{codey_state}}'
+    gid: 1666396
+
+- user:
+    name: codey
+    uid: 1666396
+    state: '{{codey_state}}'
+    group: users
+    groups: '{{codey_groups}}'
+    comment: 'Codey Oxley'
+    shell: /usr/bin/zsh
+
+- authorized_key:
+    user: codey
+    state: '{{codey_state}}'
+    key: "{{ lookup('file', item) }}"
+  with_items:
+    - rsa.pub
