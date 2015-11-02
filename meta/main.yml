@@ -2,7 +2,7 @@ galaxy_info:
   author: Codey Oxley
   description: Set up enough environment to satisfy coxley
   license: WTFPL-2.0
-  # min_ansible_version: 1.8
+  min_ansible_version: 1.8
   platforms:
   - name: Ubuntu
     versions:
