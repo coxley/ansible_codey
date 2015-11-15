@@ -1,5 +1,1 @@
 ---
-silversearcher_pkg: "{{ ansible_os_family == 'Archlinux' | ternary('the_silver_searcher', 'silversearcher-ag') }}"
-python_pkg: "{{ ansible_os_family == 'Archlinux' | ternary('python2', 'python') }}"
-pip_pkg: "{{ ansible_os_family == 'Archlinux' | ternary('python2-pip', 'python-pip') }}"
-venv_pkg: "{{ ansible_os_family == 'Archlinux' | ternary('python2-virtualenv', 'python-virtualenv') }}"
