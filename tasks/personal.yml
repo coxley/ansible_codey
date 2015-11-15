@@ -1,8 +1,8 @@
 ---
+- include_vars: "{{ ansible_distribution }}.yml"
 - package:
     state: latest
     name: "{{ item }}"
-  include_vars: "{{ ansible_distribution }}.yml"
   with_items:
     - git
     - htop
