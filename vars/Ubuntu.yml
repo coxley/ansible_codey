@@ -1,5 +1,12 @@
 ---
-silversearcher_pkg: "silversearcher-ag"
-python_pkg: "python"
-pip_pkg: "python-pip"
-venv_pkg: "python-virtualenv"
+dev_tools:
+    - git
+    - htop
+    - tmux
+    - vim
+    - zsh
+    - silversearcher-ag
+    - python
+    - python-dev
+    - python-pip
+    - python-virtualenv

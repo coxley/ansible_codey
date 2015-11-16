@@ -6,16 +6,7 @@
   package:
     state: latest
     name: "{{ item }}"
-  with_items:
-    - git
-    - htop
-    - tmux
-    - vim
-    - zsh
-    - '{{ silversearcher_pkg }}'
-    - '{{ python_pkg }}'
-    - '{{ pip_pkg }}'
-    - '{{ venv_pkg }}'
+  with_items: "{{ dev_tools }}"
 
 - name: codey | Install preferred Python packages
   pip: name={{ item }} executable=pip2

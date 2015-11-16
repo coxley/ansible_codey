@@ -1,5 +1,11 @@
 ---
-silversearcher_pkg: "the_silver_searcher"
-python_pkg: "python2"
-pip_pkg: "python2-pip"
-venv_pkg: "python2-virtualenv"
+dev_tools:
+    - git
+    - htop
+    - tmux
+    - vim
+    - zsh
+    - the_silver_searcher
+    - python2
+    - python2-pip
+    - python2-virtualenv
