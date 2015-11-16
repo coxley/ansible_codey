@@ -1,10 +1,13 @@
 ---
-- group:
+- name: codey | Ensuring group settings
+  group:
     name: codey
     state: '{{codey_state}}'
     gid: 1666396
 
-- user:
+- name: codey | Ensuring user settings
+  ignore_errors: yes
+  user:
     name: codey
     uid: 1666396
     state: '{{codey_state}}'
@@ -13,7 +16,8 @@
     comment: 'Codey Oxley'
     shell: /usr/bin/zsh
 
-- authorized_key:
+- name: codey | Installing public key
+  authorized_key:
     user: codey
     state: '{{codey_state}}'
     key: "{{ lookup('file', item) }}"
