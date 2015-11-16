@@ -1,6 +1,9 @@
 ---
+
 - include_vars: "{{ ansible_distribution }}.yml"
-- package:
+
+- name: codey | Install preferred base development tools
+  package:
     state: latest
     name: "{{ item }}"
   with_items:
@@ -14,15 +17,23 @@
     - '{{ pip_pkg }}'
     - '{{ venv_pkg }}'
 
-- pip: name=glances executable=pip2
-- pip: name=ohmu executable=pip2
+- name: codey | Install preferred Python packages
+  pip: name={{ item }} executable=pip2
+  with_items:
+    - glances
+    - ohmu
 
-- git:
+- name: codey | Clone dotfiles
+  git:
     repo: 'https://github.com/coxley/dotfiles.git'
     dest: /home/codey/.dotfiles
     force: yes
 
-- shell: zsh ./init.sh
+- name: codey | Install dotfiles
+  shell: zsh ./init.sh
   args:
     chdir: /home/codey/.dotfiles
     creates: /home/codey/.zgen
+
+- name: codey | Remove cloned repo
+  file: path=/home/codey/.dotfiles state=absent
